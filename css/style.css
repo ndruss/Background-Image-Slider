@@ -83,3 +83,17 @@
 .autoplay .slider-controls {
   display: none;
 }
+
+.slider.slide:before {
+  content: "";
+  display: block;
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  background-color: #888;
+  height: 60vw;
+  max-height: 720px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

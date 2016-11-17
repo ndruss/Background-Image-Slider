@@ -7,8 +7,24 @@ $(document).ready(function(){
   first.addClass("current");
   $(".slider").css({'background-image': 'url(' + initial + ')'});
 
-  var nextSlide = function(){
+  var fadeSlide = function(){
     
+    if ( last.hasClass("current") ) {
+      last.removeClass("current");
+      first.addClass("current");
+    }
+    else {
+      $(".current").removeClass("current").next(".source").addClass("current");
+    }
+    var src = $(".current").text();
+    $(".slider").css({'background-image': 'url(' + src + ')'});
+    
+  };
+
+  var nextSlide = function(){
+
+    $(".slider").css({'background-position': '-100vw'});
+
     if ( last.hasClass("current") ) {
       last.removeClass("current");
       first.addClass("current");
@@ -24,14 +40,22 @@ $(document).ready(function(){
   if( $(".slider").hasClass("autoplay") ) {
     var speed = 3500;
     var autoplay = setInterval(function() {
-      nextSlide();
+      fadeSlide();
     }, speed);
   }
   else {
     $(".next").click(function(){
-      nextSlide();
+      if ( $(".slider").hasClass("slide") ) {
+        nextSlide();
+      } else {
+        fadeSlide();
+      }
+      
     });
   }
+
+
+
 
   $(".autoplay_switch").click(function(){
 
