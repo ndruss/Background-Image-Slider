@@ -19,7 +19,7 @@ $(document).ready(function(){
     var src = $(".current").text();
     $(".slider").css({'background-image': 'url(' + src + ')'});
     
-  }
+  };
   
   if( $(".slider").hasClass("autoplay") ) {
     var speed = 1000;
@@ -32,5 +32,26 @@ $(document).ready(function(){
       nextSlide();
     });
   }
+
+  $(".autoplay_switch").click(function(){
+
+    if ( $(this).hasClass("on") === false ) {
+
+      $(this).addClass("on");
+      $(".slider").addClass("autoplay");
+
+      var speed = 1000;
+      var autoplay = setInterval(function() {
+        nextSlide();
+      }, speed);
+
+    } else {
+      $(this).removeClass("on");
+      $(".slider").removeClass("autoplay");
+    }
+    
+  });
+
+
 
 });
