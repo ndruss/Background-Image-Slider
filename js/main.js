@@ -1,10 +1,10 @@
 $(document).ready(function(){
   
-  var first = $(".source:first-child");
-  var last = $(".source:last-child");
+  var first = $(".source:first-of-type");
+  var last = $(".source:last-of-type");
   var initial = first.text();
   
-  $(".source:first-child").addClass("current");
+  first.addClass("current");
   $(".slider").css({'background-image': 'url(' + initial + ')'});
 
   var nextSlide = function(){
