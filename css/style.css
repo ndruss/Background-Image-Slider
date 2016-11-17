@@ -50,30 +50,34 @@
 }
 
 .switch {
-  display: inline-flex;
-  justify-content: flex-start;
   background-color: #CCC;
-  height: 30px;
-  width: 60px;
+  height: 24px;
+  width: 40px;
   margin-left: .5em;
   border-radius: 15px;
   cursor: pointer;
+  position: relative;
+  border: solid 3px #CCC;
+  transition: all .25s ease;
 }
 .switch:after {
   content: "";
+  display: inline-block;
   background-color: white;
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
-  box-sizing: border-box;
-  border: solid 3px #CCC;
+  position: absolute;
+  left: 0;
+  box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.31);
+  transition: all .25s ease;
 }
 .switch.on {
   background-color: #57de57;
-  justify-content: flex-end;
+  border-color: #57de57;
 }
 .switch.on:after {
-  border: solid 3px #57de57;
+  left: 40%;
 }
 
 .autoplay .slider-controls {
